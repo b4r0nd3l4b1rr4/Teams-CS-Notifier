@@ -1,0 +1,21 @@
+# teamsnotify.cna
+$PythonScriptPath = script_resource("notify.py");
+
+# Hook for new beacons
+on beacon_initial {
+
+    $computer = beacon_info($1, "computer");
+    $external = beacon_info($1, "external");
+    $internal = beacon_info($1, "internal");
+    $user = beacon_info($1, "user");
+
+    $message1 = "New Beacon from:$external";
+    $message2 = "Internal_IP:$internal";
+    $message3 = "Host.name:$computer";
+    $message4 = "User.name:$user";
+    $title = "[RT_Alert] Alert from cobalt strike";
+
+    # Call the Python script
+    $command = @('python3',$PythonScriptPath,$title,$message1,$message2,$message3,$message4);
+    exec($command);
+}
