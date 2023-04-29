@@ -10,8 +10,6 @@ To use this script, you need to perform the following steps:
 
 2. Load the `teamsnotify.cna` script into Cobalt Strike.
 
-3. Execute the `teamsnotify` command to start the script.
-
 The script will now send a notification to the specified Teams channel every time a new beacon is established.
 
 ## Script Details
